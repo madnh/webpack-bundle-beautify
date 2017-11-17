@@ -87,7 +87,12 @@ function downloadText(filename, text) {
 function decodeIt() {
     var editor = document.getElementById('bundle-source').editor;
 
-    eval(editor.getValue());
+    try {
+        eval(editor.getValue());
+    } catch (error) {
+        alert('Source code has problem!!');
+        throw error;
+    }
 }
 
 function downloadDecoded() {
